@@ -9,7 +9,7 @@ from Helper.r4geHelper import *
 
 # connect to r2
 r2proj = createR2Pipe()
-if r2proj == None:
+if r2proj is None:
     print(colored("only callable inside a r2-instance!", "red", attrs=["bold"]))
     exit(0)
 
