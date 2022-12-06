@@ -199,6 +199,8 @@ else:
     if state_found is not None:
         print(colored("\nSTDIN of state_found:", "blue", attrs=["bold"]))
         print(state_found.posix.dumps(0).decode('utf-8', 'ignore'))
+        print(colored("\nSTDOUT of state_found:", "blue", attrs=["bold"]))
+        print(state_found.posix.dumps(1).decode('utf-8', 'ignore'))
 
     if checkUserPrompt("Do ou want to start an IPython-Shell"):
         print(colored('''
