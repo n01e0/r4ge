@@ -7,10 +7,10 @@ from Helper.memStoreHelper import *
 from Helper.hookHandler import *
 from Helper.r4geHelper import *
 
-# connect to rizin
-rzproj = createRzPipe()
-if rzproj == None:
-    print(colored("only callable inside a rz-instance!", "red", attrs=["bold"]))
+# connect to r2
+r2proj = createR2Pipe()
+if r2proj == None:
+    print(colored("only callable inside a r2-instance!", "red", attrs=["bold"]))
     exit(0)
 
 # check if we use stdout checking
