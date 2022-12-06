@@ -6,26 +6,26 @@ from Helper.memStoreHelper import *
 from Helper.hookHandler import *
 
 # create r2 connection
-rzproj = createR2Pipe()
-if rzproj == None:
+r2proj = createR2Pipe()
+if r2proj == None:
     print(colored("only callable inside a r2-instance!", "red", attrs=["bold"]))
     exit(0)
 
-isX86 = isArchitectureX86(rzproj)
+isX86 = isArchitectureX86(r2proj)
 print("isX86: {}".format(isX86))
 
 # get Offsets, we only need start_offset for callable
-_, _, start_offset = getOffsets(rzproj)
+_, _, start_offset = getOffsets(r2proj)
 
 # get parameters
 expected_result = int(sys.argv[1], 16)
 
 # get binary name and create angr project
-binaryname = getBinaryName(rzproj)
+binaryname = getBinaryName(r2proj)
 proj = angr.Project( binaryname, load_options={"auto_load_libs":False})
 
 # setup hooks
-hook_variables = getHooks( rzproj )
+hook_variables = getHooks( r2proj )
 if len(hook_variables) != 0:
     for hook in hook_variables:
         # 0=address, 1=patch_length, 2=instructions
