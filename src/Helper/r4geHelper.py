@@ -121,6 +121,8 @@ def isPIE(r2proj):
     bininfo = r2proj.cmdj("ij")
     if bininfo['bin']['pic']:
         bin_addr = r2proj.cmdj("ej")['bin.baddr']
+        if isinstance(bin_addr, str):
+            bin_addr = int(bin_addr)
         return True, bin_addr
     else:
         return False, 0
